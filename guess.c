@@ -21,6 +21,10 @@ struct user player;
 // functions
 int get_player_data();
 void register_new_player();
+int pick_a_number();
+int no_match_dealer();
+int find_the_ace();
+void play_the_game();
 
 int main() {
   int choice, last_game = INF;
@@ -39,5 +43,38 @@ int main() {
     printf("6. Reset your account to 100 credits.\n");
     printf("7. Quit!\n");
     scanf("%d", &choice);
+
+    if (choice < 1 || choice > 7) {
+      printf("Invalid Choice. Please try again!\n");
+    }
+
+    else if (choice < 4) {
+      if (choice != last_game) {
+        if (choice == 1)
+          player.current_game = pick_a_number;
+        if (choice == 2)
+          player.current_game = no_match_dealer;
+        if (choice == 3)
+          player.current_game = find_the_ace;
+        last_game = choice;
+        play_the_game();
+      }
+    }
+
+    else if (choice == 4) {
+      // TODO : highscore
+    }
+
+    else if (choice == 5) {
+      // TODO : change username
+    }
+
+    else if (choice == 6) {
+      // TODO : reset account
+    }
+
+    else if (choice == 7) {
+      // TODO :
+    }
   }
 }
