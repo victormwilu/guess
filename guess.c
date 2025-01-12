@@ -25,6 +25,8 @@ int pick_a_number();
 int no_match_dealer();
 int find_the_ace();
 void play_the_game();
+void show_highscore();
+void input_name();
 
 int main() {
   int choice, last_game = INF;
@@ -45,7 +47,7 @@ int main() {
     scanf("%d", &choice);
 
     if (choice < 1 || choice > 7) {
-      printf("Invalid Choice. Please try again!\n");
+      printf("\nError: %d is an invalid choice. Please try again.\n", choice);
     }
 
     else if (choice < 4) {
@@ -62,19 +64,17 @@ int main() {
     }
 
     else if (choice == 4) {
-      // TODO : highscore
+      show_highscore();
     }
 
     else if (choice == 5) {
-      // TODO : change username
+      printf("\nChange your Username.\n");
+      input_name();
     }
 
     else if (choice == 6) {
-      // TODO : reset account
-    }
-
-    else if (choice == 7) {
-      // TODO :
+      printf("\nYour credits have been reset to 100 credits.\n");
+      player.credits = 100;
     }
   }
 }
