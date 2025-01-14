@@ -27,6 +27,7 @@ int find_the_ace();
 void play_the_game();
 void show_highscore();
 void input_name();
+void update_player_data();
 
 int main() {
   int choice, last_game = INF;
@@ -59,8 +60,8 @@ int main() {
         if (choice == 3)
           player.current_game = find_the_ace;
         last_game = choice;
-        play_the_game();
       }
+      play_the_game();
     }
 
     else if (choice == 4) {
@@ -69,12 +70,17 @@ int main() {
 
     else if (choice == 5) {
       printf("\nChange your Username.\n");
+      printf("Enter your Name: ");
       input_name();
+      printf("\nYour Username has been successfully changed.\n");
     }
 
     else if (choice == 6) {
-      printf("\nYour credits have been reset to 100 credits.\n");
+      printf("\nYour account has been reset to 100 credits.\n");
       player.credits = 100;
     }
+
+    update_player_data();
+    printf("\nThanks for Playing! Adios.\n");
   }
 }
